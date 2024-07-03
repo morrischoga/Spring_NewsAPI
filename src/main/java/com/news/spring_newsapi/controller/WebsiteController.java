@@ -6,12 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
 
 @RestController
 public class WebsiteController {
 
     @GetMapping("/hiphopdx")
-    public String hiphopdx() throws IOException {
+    public LinkedHashMap<String,String[]> hiphopdx() throws IOException {
 
 
 
