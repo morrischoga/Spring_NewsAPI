@@ -1,7 +1,8 @@
 #!/bin/bash
 docker stop newsapi
 
-mvn clean package
+
+git pull
 
 docker build -t newsapi .
 
