@@ -30,11 +30,11 @@ public class HiphopDX {
 
 
         for (Element topic : topics) {
-
-            Elements storyContentContainer = getdocument("https://hiphopdx.com" + topic.attr("href")).getElementsByClass("content-container");
+            String url = "https://hiphopdx.com" + topic.attr("href");
+            Elements storyContentContainer = getdocument(url).getElementsByClass("content-container");
 //            display(storyContentContainer);
             String[] result = getStory(storyContentContainer);
-            news.put(result[0], new String[]{result[1], result[2]});
+            news.put(result[0], new String[]{url ,result[1], result[2]});
 
 
         }
@@ -61,7 +61,7 @@ public class HiphopDX {
 
             image = storyContent.getElementsByClass("image large").first().getElementsByTag("img").attr("src");
             title = storyContent.getElementsByClass("headline__title").last().text();
-            story = storyContent.getElementsByClass("body-copy").last().text().replace("AD AD LOADING...","");
+            story = storyContent.getElementsByClass("body-copy").last().text().replace("AD AD LOADING...","he");
 
 
 
