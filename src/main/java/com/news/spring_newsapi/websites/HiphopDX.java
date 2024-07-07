@@ -34,7 +34,7 @@ public class HiphopDX {
             Elements storyContentContainer = getdocument(url).getElementsByClass("content-container");
 //            display(storyContentContainer);
             String[] result = getStory(storyContentContainer);
-            news.put(result[0], new String[]{url ,result[1], result[2]});
+            news.put(result[0], new String[]{url ,result[1], result[2],result[3]});
 
 
         }
@@ -49,16 +49,20 @@ public class HiphopDX {
 
 
     static  String[] getStory(Elements storyContentContainer){
+
+
         String image = "";
-        String title = "";
+        String title ="";
         String story = "";
+        String date = "";
+
 
 
 
 
         for (Element storyContent : storyContentContainer) {
 
-
+            date = storyContent.getElementsByClass("date").attr("content");
             image = storyContent.getElementsByClass("image large").first().getElementsByTag("img").attr("src");
             title = storyContent.getElementsByClass("headline__title").last().text();
             story = storyContent.getElementsByClass("body-copy").last().text().replace("AD AD LOADING...","he");
@@ -74,7 +78,7 @@ public class HiphopDX {
 
 
         }
-        return new String[]{title,image,story};
+        return new String[]{title,date,image,story};
 //        return title +"<br>" + story+"<br><br>";
 
 
